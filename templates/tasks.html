@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Printcentre Tasks</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>Works Instruction</h2>
+
     {% for task in tasks %}
         {{ task.job_title }} <br>
         {{ task.job_no }} <br>
@@ -19,5 +15,5 @@
         {{ task.urgent }} <br>
         {{ task.delivery_date }} <br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
