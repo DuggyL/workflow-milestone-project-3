@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printcentre Tasks</title>
+</head>
+<body>
+    {% for task in tasks %}
+        {{ task.job_title }} <br>
+        {{ task.job_no }} <br>
+        {{ task.size }} <br>
+        {{ task.pages }} <br>
+        {{ task.materials }} <br>
+        {{ task.printing }} <br>
+        {{ task.finishing }} <br>
+        {{ task.comments }} <br>
+        {{ task.urgent }} <br>
+        {{ task.delivery_date }} <br>
+    {% endfor %}
+</body>
+</html>
