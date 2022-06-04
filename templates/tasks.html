@@ -1,32 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for task in tasks %}
-        {{ task.job_title }} <br>
-        {{ task.job_no }} <br>
-        {{ task.size }} <br>
-        {{ task.pages }} <br>
-        {{ task.materials }} <br>
-        {{ task.printing }} <br>
-        {{ task.finishing }} <br>
-        {{ task.comments }} <br>
-        {{ task.urgent }} <br>
-        {{ task.delivery_date }} <br>
-    {% endfor %}
-
-    <ul class="collapsible">
-        <li>
-          <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-      </ul>
-            
+  <ul class="collapsible">
+      {% for task in tasks %}
+      <li>
+        <div class="collapsible-header"><i class="material-icons">note</i>
+          <strong>{{ task.job_title }}</strong>
+          <strong>{{ task.job_no }}</strong>
+          <i class="material-icons">local_shipping</i> {{ task.delivery_date }}
+            {% if task.urgent == "on" %}
+              <i class="material-icons" data-position="right" data-tooltip="Priority!">priority_high</i>
+            {% endif %}
+        </div>
+        <div class="collapsible-body"><span><p>{{ task.job_description }}</p</span></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">place</i>Printing</div>
+          <div class="collapsible-body"><span>{{ task.size }} <br>
+            {{ task.pages }} <br>
+            {{ task.materials }} <br>
+            {{ task.printing }} <br>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">whatshot</i>Finishing</div>
+        <div class="collapsible-body"><span>{{ task.finishing }}</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+           
 {% endblock %}
