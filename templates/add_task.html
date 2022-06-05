@@ -3,20 +3,44 @@
 
 <h3 class="center-align">Add Task</h3>
 
-    <div class="row">
+    <div class="row card-panel">
         <form class="col s12" method="POST" action="">
-        <div class="row">
-            <div class="input-field col s6">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">First Name</label>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="job_title" name="job_title" minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="job_title">Job Title</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="job_no" name="job_no" minlength="6" maxlength="6" pattern="^[0-9]{6,6}$" type="text" class="validate" required>
+                    <label for="job_no">Job No</label>
+                </div>
             </div>
-            <div class="input-field col s6">
-            <i class="material-icons prefix">phone</i>
-            <input id="icon_telephone" type="tel" class="validate">
-            <label for="icon_telephone">Telephone</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">phone</i>
+                    <textarea id="job_description" name="job_description" class="materialize-textarea" minlength="5" maxlength="100" required></textarea>
+                    <label for="job_description">Job Description</label>
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="delivery_date" name="delivery_date" type="text" class="datepicker validate" required>
+                    <label for="delivery_date">Delivery Date</label>
+                </div>
+                <div class="input-field col s6">
+                    <div class="switch">
+                        <i class="material-icons prefix">priority_high</i>
+                        <label for="urgent">
+                            <input type="checkbox" id="urgent" name="urgent">
+                            <span class="lever"></span>
+                            Urgent
+                        </label>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 
