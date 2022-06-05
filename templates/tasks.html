@@ -6,14 +6,21 @@
   <ul class="collapsible">
       {% for task in tasks %}
       <li>
-        <div class="collapsible-header"><i class="material-icons">note</i>
-          <strong>{{ task.job_title }}</strong>
-          <strong>{{ task.job_no }}</strong>
-          <em>{{ task.created_by }}</em>
-          <i class="material-icons">local_shipping</i> {{ task.delivery_date }}
-            {% if task.urgent == "on" %}
-              <i class="material-icons" data-position="right" data-tooltip="Priority!">priority_high</i>
-            {% endif %}
+        <div class="collapsible-header">
+          <div class="col s3">
+            <a href="" class="btn-small red accent-4">Done</a>
+            <a href="" class="btn-small yellow">Edit</a>
+          </div>  
+          <div class="col s9"></div>
+            <i class="material-icons">note</i>
+            <strong>{{ task.job_title }}</strong>
+            <strong>{{ task.job_no }}</strong>
+            <em>{{ task.created_by }}</em>
+            <i class="material-icons">local_shipping</i> {{ task.delivery_date }}
+              {% if task.urgent == "on" %}
+                <i class="material-icons" data-position="right" data-tooltip="Priority!">priority_high</i>
+              {% endif %}
+          </div>
         </div>
         <div class="collapsible-body"><span><p>{{ task.job_description }}</p</span></div>
       </li>
