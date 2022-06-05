@@ -9,7 +9,7 @@
         <div class="collapsible-header">
           <div class="col s3">
             <a href="" class="btn-small red accent-4">Done</a>
-            <a href="" class="btn-small yellow">Edit</a>
+            <a href="{{ url_for('edit_task', task_id=task._id) }}" class="btn-small yellow">Edit</a>
           </div>  
           <div class="col s9"></div>
             <i class="material-icons">note</i>

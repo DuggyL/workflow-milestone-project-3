@@ -109,6 +109,12 @@ def add_task():
     departments = mongo.db.departments.find().sort("department_name", 1)
     return render_template("add_task.html", departments = departments)
 
+@app.route("/edit_task/<task_id>", methods = ["GET", "POST"])
+def edit_task(task_id):
+    task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+    departments = mongo.db.departments.find().sort("department_name", 1)
+    return render_template("edit_task.html", task = task, departments = departments)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port = int(os.environ.get("PORT")),
