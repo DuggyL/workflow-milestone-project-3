@@ -92,7 +92,8 @@ def logout():
 
 @app.route("/add_task")
 def add_task():
-    return render_template("add_task.html")
+    departments = mongo.db.departments.find().sort("department_name", 1)
+    return render_template("add_task.html", departments = departments)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
