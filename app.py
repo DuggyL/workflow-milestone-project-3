@@ -130,6 +130,12 @@ def edit_task(tasks_id):
     departments = mongo.db.departments.find().sort("department_name", 1)
     return render_template("edit_task.html", task = task, departments = departments)
 
+@app.route("/delete_task/<tasks_id>")
+def delete_task(tasks_id):
+    mongo.db.tasks.remove({"_id": ObjectId(tasks_id)})
+    flash("Task completed")
+    return redirect(url_for("display_tasks"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port = int(os.environ.get("PORT")),
