@@ -110,8 +110,8 @@ def add_task():
     departments = mongo.db.departments.find().sort("department_name", 1)
     return render_template("add_task.html", departments = departments)
 
-@app.route("/edit_task/<task_id>", methods = ["GET", "POST"])
-def edit_task(task_id):
+@app.route("/edit_task/<tasks_id>", methods = ["GET", "POST"])
+def edit_task(tasks_id):
     if request.method == "POST":
         urgent = "on" if request.form.get("urgent") else "off"
         submit = {
@@ -123,10 +123,10 @@ def edit_task(task_id):
             "delivery_date": request.form.get("delivery_date"),
             "created_by": session["user"]
         }
-        mongo.db.tasks.update({"_id": ObjectId(task_id)}, submit)
+        mongo.db.tasks.update({"_id": ObjectId(tasks_id)}, submit)
         flash("Task Successfully Updated")
 
-    task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+    task = mongo.db.tasks.find_one({"_id": ObjectId(tasks_id)})
     departments = mongo.db.departments.find().sort("department_name", 1)
     return render_template("edit_task.html", task = task, departments = departments)
 

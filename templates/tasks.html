@@ -10,7 +10,7 @@
           <div class="col s3">
             {% if session.user|lower == task.created_by|lower %}
               <a href="" class="btn-small red accent-4">Done</a>
-              <a href="{{ url_for('edit_task', task_id=task._id) }}" class="btn-small yellow">Edit</a>
+              <a href="{{ url_for('edit_task', tasks_id=task._id) }}" class="btn-small yellow">Edit</a> 
             {% endif %}
           </div>  
           <div class="col s9"></div>
