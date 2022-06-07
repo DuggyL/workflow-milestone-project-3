@@ -16,3 +16,7 @@ body {
     margin: 6px;
     line-height: 42px;
 }
+
+.tasks-card {
+    padding: 15px 10px 10px 10px;
+}
