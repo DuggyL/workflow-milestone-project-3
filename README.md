@@ -1,36 +1,24 @@
-<h1>Milestone Project 3</h1>
+<h1><b>Printcentre Workflow Web Application</b></h1>
 
 [View the live project here.](https://printcentre-workflow-project.herokuapp.com/)
 
-This Python and Data-Centric Development project aims to design simple workflow systems for Printcentre Wales (my current employer), a printing company. 
+This Python and Data-Centric Development project aims to design a simple workflow system for Printcentre Wales (my current employer), a commercial printing company.  
+
+## Purpose & Goals
+
+Printcentre management currently uses end-to-end workflow desktop software to manage customers’ databases, orders, quotes and workflow. But this software can only be accessed by the management team. 
+When a job is booked in, staff are given a job docket with work instruction details. This docket will pass through different departments till completion. It leaves staff to manage workflow among themself, 
+which can lead to mistakes and other issues. If all the staff have access to the same job docket at the same time I believe it can improve efficiency and reduce mistakes by allowing each department to plan ahead beforehand. 
+The purpose & goals of this project are to create a simple web application that allows all staff to access a simple task management system. 
 
 ## User Experience (UX)
 
-### Purpose & Goals
+-   ### Returning and Frequent Visitor Goals
 
-The Printcentre management team currently uses end-to-end desktop workflow software but this software can only be accessed by the management team.
-The print room staff are required to manage workflow among themself, which can lead to mistakes, long turnaround times and other issues.
-The purpose & goals of this project are to create a web application that allows all print room staff to access a simple workflow system, designed to be responsive and accessible on a range of devices. 
-
--   ### User stories
-
-    -   #### First Time Visitor Goals
-
-        1. As a User, I want the ability to add, edit and delete jobs.
-        2. As a User, I want to check the schedule of all active and upcoming jobs. 
-        3. As a User, I want to see the up to date progress of all active jobs. 
-        4. As a User, I want to leave comments for future reference. 
-
-    -   #### Returning Visitor Goals
-
-        1. As a Returning Visitor, I want to find information about coding challenges.
-        2. As a Returning Visitor, I want to find the best way to get in contact with the organisation with any questions I may have.
-        3. As a Returning Visitor, I want to find community links.
-
-    -   #### Frequent User Goals
-        1. As a Frequent User, I want to check to see if there are any newly added challenges or hackathons.
-        2. As a Frequent User, I want to check to see if there are any new blog posts.
-        3. As a Frequent User, I want to sign up to the Newsletter so that I am emailed any major updates and/or changes to the website or organisation.
+    - As a User, I want the ability to add, edit and delete jobs.
+    - As a User, I want to check the schedule of all active and upcoming jobs. 
+    - As a User, I want to see the up to date progress of all active jobs. 
+    - As a User, I want to leave comments for future reference. 
 
 -   ### Design
     -   #### Colour Scheme
@@ -38,20 +26,45 @@ The purpose & goals of this project are to create a web application that allows 
     -   #### Typography
         -   I used Roboto throughout the webpage to maintain cohesion across the project. Using different font weights to convey emphasis and importance on some of the content. 
             It has friendly features and great letter-spacing that leads to ease of communication.
-    -   #### Imagery
-        -   I plan to use simple icons to help the navigation of the site. I plan to keep implementation of imagery to a minimum as I find it causes distraction from the web application. 
 
-*   ### Wireframes
+-   ### Wireframes
 
     -   Home Page Wireframe - [View](#)
     -   Mobile Wireframe - [View](#)
     -   Contact Us Page Wireframe - [View](#)
 
-## Features
+## Responsive Design & Features
 
--   Responsive on all device sizes
+The primary design goal of this project is to create a web application user interface that is easy to understand and requires minimal steps to be completed. 
+The application needs to have several features in order to increase work efficiency and streamline work collaboration. 
+The 5 main phases in commercial printing are booking, pre-press, printing, finishing and delivery. 
+The idea of this project is to implement simple but useful features allowing each department to update progress throughout the duration of the job. 
 
--   Interactive elements
+Using the CRUD's four basic functions (create, read, update and delete), here are the design and features:
+-   The ability to create tasks and assignments
+-   The ability to read/check schedule, progress and completed jobs
+-   The ability to update/edit jobs specifications, instructions, schedules and add comments
+-   The ability to delete tasks, assignments and schedule
+
+## Exiting Features
+
+-   ### Navigation Bar
+    -   Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Gallery and Sign Up page and is identical in each page to allow for easy navigation.
+        This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button.
+
+-   ### Tasks Display Page
+    -   The landing includes a photograph with text overlay to allow the user to see exactly which location this site would be applicable.
+        This section introduces the user to Love Running with an eye catching animation to grab their attention
+
+-   ### Task Management Page
+    -   This page will allow the user to get signed up to Love Running to start their running journey with the community. The user will be able to specify  if they would like to take part in road, trail or both types of running. 
+        The user will be asked to submit their full name and email address.
+
+-   ### Profile Page
+    -   This page will allow the user to get signed up to Love Running to start their running journey with the community. The user will be able to specify  if they would like to take part in road, trail or both types of running. 
+        The user will be asked to submit their full name and email address.
+
+## Future Features
 
 ## Technologies Used
 
