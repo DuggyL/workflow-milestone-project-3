@@ -3,36 +3,51 @@
 
     <h3 class="light-blue-text text-darken-4 center-align">All Tasks</h3>
 
-    <ul class="collapsible">
-        {% for task in tasks %}
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-                <div class="col s3">
-                    <i class="fas fa-caret-down"></i>
-                    {% if session.user|lower == task.created_by|lower %}
-                        <a href="{{ url_for('delete_task', task_id=task._id) }}" class="btn-small green accent-4">Done</a>
-                        <a href="{{ url_for('edit_task', task_id=task._id) }}" class="btn-small light-blue lighten-1">Edit</a>
-                    {% endif %}
+    <div class="tasks-card row z-depth-1 blue-grey lighten-5">
+      <div class="col s12">
+        <div class="card-content">
+          <ul class="collapsible expandable">
+          {% for task in tasks %}
+            <li>
+              <div class="collapsible-header black white-text"><i class="material-icons">note</i>
+                <div class="col s5">{{ task.company_name }}</div>
+                <div class="col s5">{{ task.job_title }}
+                  {% if task.urgent == "on" %}
+                  <i class="material-icons" data-position="right" data-tooltip="URGENT!">info</i>
+                  {% endif %}
                 </div>
-                <div class="col s9">
-                    <strong>{{ task.job_title }}</strong> : {{ task.delivery_date }}
-                    {% if task.is_urgent == "on" %}
-                        <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
-                            data-position="right" data-tooltip="URGENT!"></i>
-                    {% endif %}
+                <div class="col s2">                  
+                  {% if session.user|lower == task.created_by|lower %}
+                    <a href="{{ url_for('delete_task', task_id=task._id) }}" class="btn-small green accent-4">Done</a>
+                    <a href="{{ url_for('edit_task', task_id=task._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                  {% endif %}
                 </div>
-            </div>
-            <div class="collapsible-body">
-                <strong>{{ task.category_name }}</strong>
-                <p>{{ task.job_description }}</p>
-                <p><em>by: {{ task.created_by }}</em></p>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
-
-    <div>
-
-    </div>
+              </div>
+              <div class="collapsible-body white">
+                <div class="row">
+                  <div class="col s12">Job Description: {{ task.job_description }}</div>
+                </div>
+                <div class="row">
+                  <div class="col s6">Quantity: {{ task.quantity }}</div>
+                  <div class="col s6">Materials: {{ task.materials }}</div>
+                </div>
+                <div class="row">
+                  <div class="col s6">Printing: {{ task.printing }}</div>
+                  <div class="col s6">Finishing: {{ finishing }}</div>
+                </div>
+                <div class="row">
+                  <div class="col s6">Delivery: {{ task.delivery }}</div>
+                  <div class="col s6">Delivery Date: {{ task.delivery_date }}</div>
+                </div>
+                <div class="row">
+                  <div class="col s12">Delivery Address: {{ task.delivery_address }}</div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+  </div>
 
 {% endblock %}
