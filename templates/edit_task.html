@@ -3,80 +3,103 @@
 
     <h3 class="light-blue-text text-darken-4 center-align">Edit Task</h3>
 
-    <div class="row card-panel grey lighten-5">
+    <div class="row card-panel">
         <form class="col s12" method="POST" action="{{ url_for('edit_task', task_id=task._id) }}">
-            <!-- category selection -->
-			<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled>Choose Category</option>
-                        {% for category in categories %}
-                            {% if category.category_name == task.category_name %}
-                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                            {% else %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-					<label for="category_name">Task Category</label>
-				</div>
-			</div>
-            <!-- task name -->
+            <!-- Job title and job number -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="task_name" name="task_name" minlength="5" maxlength="50"
-                        value="{{ task.task_name }}" type="text" class="validate" required>
-                    <label for="task_name">Task Name</label>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="company_name" name="company_name" value="{{ task.company_name }}"
+                        minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="company_name">Company Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="job_title" name="job_title" value="{{ task.job_title }}"
+                        minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="job_title">Job Title:</label>
                 </div>
             </div>
-            <!-- task description -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="task_description" name="task_description" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required>
-                        {{- task.task_description -}}
+                    <i class="material-icons prefix">phone</i>
+                    <textarea id="job_description" name="job_description" class="materialize-textarea" 
+                        minlength="5" maxlength="100" required>
+                    {{- task.job_description -}}
                     </textarea>
-                    <label for="task_description">Task Description</label>
+                    <label for="job_description">Job Description</label>
                 </div>
             </div>
-            <!-- due date picker -->
+            <!-- Printing and finishing -->
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="quantity" name="quantity" pattern="^[0-9]{1,10}$" value="{{ task.quantity }}"
+                        minlength="1" maxlength="10" type="text" class="validate" required>
+                    <label for="quantity">Quantity</label>
+                 </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="materials" name="materials" value="{{ task.materials }}"
+                        minlength="3" maxlength="30" type="text" class="validate" required>
+                    <label for="materials">Materials:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="printing" name="printing" value="{{ task.printing }}"
+                        minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="printing">Printing</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="finishing" name="finishing" value="{{ task.finishing }}"
+                        minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="finishing">Finishing:</label>
+                </div>
+            </div>
+            <!-- Delivery date and urgent switch -->
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="delivery" name="delivery" value="{{ task.delivery }}"
+                        minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="delivery">Delivery</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i> 
+                    <input id="delivery_date" name="delivery_date" value="{{ task.delivery_date }}" type="text" class="datepicker validate" required>
+                    <label for="delivery_date">Delivery Date</label>
+                </div>
+            </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="due_date" name="due_date" type="text"
-                        value="{{ task.due_date }}" class="datepicker validate" required>
-                    <label for="due_date">Due Date</label>
+                    <i class="material-icons prefix">phone</i>
+                    <textarea id="delivery_address" name="delivery_address" class="materialize-textarea" 
+                        minlength="5" maxlength="100" required>
+                    {{- task.delivery_address -}}
+                    </textarea>
+                    <label for="delivery_address">Delivery Address</label>
                 </div>
             </div>
-            <!-- is urgent toggle -->
-			<div class="row">
-				<div class="input-field col s12">
-					<div class="switch">
-                        <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
-						<label for="is_urgent">
-                            {% if task.is_urgent == "on" %}
-                                <input type="checkbox" id="is_urgent" name="is_urgent" checked>
-                            {% else %}
-                                <input type="checkbox" id="is_urgent" name="is_urgent">
-                            {% endif %}
-                            <span class="lever"></span>
-                            Is Urgent
-                        </label>
-					</div>
-				</div>
-			</div>
-            <!-- submit button -->
             <div class="row">
-                <div class="col s12 center-align">
-                    <!-- cancel button -->
-                    <a href="{{ url_for('get_tasks') }}" class="btn-large red text-shadow">
-                        Cancel <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Edit Task <i class="fas fa-edit right"></i>
+                <div class="input-field col s6">
+                    <div class="switch">
+                        <i class="material-icons prefix">priority_high</i>
+                        <label for="urgent">
+                            <input type="checkbox" id="urgent" name="urgent">
+                            <span class="lever"></span>
+                            Urgent
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div class="row">
+                <div class="col s12 center-align"> 
+                    <button class="btn-large waves-effect waves-light" type="submit">Submit
+                        <i class="material-icons right">send</i>
                     </button>
                 </div>
             </div>
