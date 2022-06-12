@@ -144,6 +144,7 @@ def edit_task(task_id):
         }
         mongo.db.tasks.replace_one({"_id": ObjectId(task_id)}, submit)
         flash("Task Successfully Updated")
+        return redirect(url_for("get_tasks"))
 
     task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
     return render_template("edit_task.html", task=task)
