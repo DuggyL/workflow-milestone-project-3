@@ -7,6 +7,7 @@ class customer(db.Model):
     customer_name = db.Column(db.String(50), nullable=False)
     contact_no = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(50), nullable=False)
+    address = db.Column(db.Text, nullable=False)
     customer_id = db.Column(db.Integer, db.ForeignKey("customer_id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):

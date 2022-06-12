@@ -146,8 +146,11 @@ def delete_task(task_id):
     flash("Task Successfully Deleted")
     return redirect(url_for("get_tasks"))
 
-
-if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
+@app.route("/add_customer", methods=["GET", "POST"])
+def add_customer():
+    if request.method == "POST":
+        customer = Customer(company_name=request.form.get("customer_name"))
+        db.session.add_customer
+        db.session.commit()
+        return redirect(url_for("get_tasks"))
+    return render_template("add_customer.html")
