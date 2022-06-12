@@ -1,11 +1,9 @@
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+from flask import Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from taskmanager import app, db, mongo
-from taskmanager.models import customer
+from taskmanager.models import Customer
 
 @app.route("/")
 
@@ -120,7 +118,6 @@ def edit_task(task_id):
         is_urgent = "on" if request.form.get("urgent") else "off"
         submit = {
             "job_title": request.form.get("job_title"),
-            "company_name": request.form.get("company_name"),
             "job_description": request.form.get("job_description"),
             "quantity": request.form.get("quantity"),
             "materials": request.form.get("materials"),
@@ -146,11 +143,18 @@ def delete_task(task_id):
     flash("Task Successfully Deleted")
     return redirect(url_for("get_tasks"))
 
+
 @app.route("/add_customer", methods=["GET", "POST"])
 def add_customer():
     if request.method == "POST":
-        customer = Customer(company_name=request.form.get("customer_name"))
-        db.session.add_customer
+        customer = Customer(
+            company_name=request.form.get("company_name"),
+            customer_name=request.form.get("customer_name"),
+            contact_no=request.form.get("contact_no"),
+            email=request.form.get("email"),
+            address=request.form.get("address"),
+        )
+        db.session.add(customer)
         db.session.commit()
         return redirect(url_for("get_tasks"))
     return render_template("add_customer.html")
