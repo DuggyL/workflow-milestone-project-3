@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="light-blue-text text-darken-4 center-align">Add Customer</h3>
+
+    <div class="row card-panel">
+        <form class="col s12" method="POST" action="{{ url_for('add_task') }}">
+            <!-- Customer's details -->
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="company_name" name="company_name" 
+                        minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="company_name">Company Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="customer_name" name="customer_name" 
+                        minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="customer_name">Customer Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="contact_no" name="contact_no" pattern="^[0-9]{1,10}$"
+                        minlength="1" maxlength="10" type="text" class="validate" required>
+                    <label for="contact_no">Contact No</label>
+                 </div>
+                 <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="email" name="email" 
+                        minlength="5" maxlength="30" type="text" class="validate" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a href="{{ url_for('get_tasks') }}" class="btn-large red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button class="btn-large waves-effect waves-light" type="submit">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
