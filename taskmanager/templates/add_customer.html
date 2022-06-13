@@ -56,7 +56,16 @@
         </form>
     </div>
 
-
+    <div>
+        <table class="">
+            {% for customer in customers %}
+                <tr>
+                <td>{{ customer.id }} - {{ customer.company_name }} - {{customer.customer_name }} - {{ customer.contact_no }} - {{ customer.email }} - {{ customer.address }}
+                <a href="">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 
 {% endblock %}
 

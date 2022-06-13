@@ -147,6 +147,7 @@ def delete_task(task_id):
 
 @app.route("/add_customer", methods=["GET", "POST"])
 def add_customer():
+    customers = list(Customer.query.order_by(Customer.company_name).all())
     if request.method == "POST":
         customer = Customer(
             company_name=request.form.get("company_name"),
@@ -157,5 +158,7 @@ def add_customer():
         )
         db.session.add(customer)
         db.session.commit()
-        return redirect(url_for("get_tasks"))
-    return render_template("add_customer.html")
+        flash("Customer Successfully added", category='success')
+        return redirect(url_for("add_customer"))
+        
+    return render_template("add_customer.html", customers=customers)
