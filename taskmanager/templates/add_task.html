@@ -9,9 +9,13 @@
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="company_name" name="company_name" 
-                        minlength="5" maxlength="30" type="text" class="validate" required>
-                    <label for="company_name">Company Name</label>
+                    <select id="company_name" name="company_name" class="validate" required>
+                        <option value="" disabled selected>Choose Company</option>
+                        {% for customer in customers %}
+                            <option value="{{ customer.company_name }}">{{ customer.company_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="company_name">Customer</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>

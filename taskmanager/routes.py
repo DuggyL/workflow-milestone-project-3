@@ -108,12 +108,14 @@ def add_task():
         mongo.db.tasks.insert_one(task)
         flash("Task Successfully Added", category='success')
         return redirect(url_for("get_tasks"))
-
-    return render_template("add_task.html")
+        
+    customers = list(Customer.query.order_by(Customer.company_name).all())
+    return render_template("add_task.html", customers=customers)
 
 
 @app.route("/edit_task/<task_id>", methods=["GET", "POST"])
 def edit_task(task_id):
+    customers = list(Customer.query.order_by(Customer.company_name).all())
     if request.method == "POST":
         is_urgent = "on" if request.form.get("urgent") else "off"
         submit = {
@@ -135,7 +137,7 @@ def edit_task(task_id):
         return redirect(url_for("get_tasks"))
 
     task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
-    return render_template("edit_task.html", task=task)
+    return render_template("edit_task.html", task=task, customers=customers)
 
 
 @app.route("/delete_task/<task_id>")
