@@ -21,7 +21,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists", category='error')
             return redirect(url_for("register"))
 
         register = {
@@ -32,7 +32,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful!", category='success')
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
@@ -56,12 +56,12 @@ def login():
                             "profile", username=session["user"]))
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username and/or Password", category='error')
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password", category='error')
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -82,7 +82,7 @@ def profile(username):
 @app.route("/logout")
 def logout():
     # remove user from session cookie
-    flash("You have been logged out")
+    flash("You have been logged out", category='success')
     session.pop("user")
     return redirect(url_for("login"))
 
@@ -106,7 +106,7 @@ def add_task():
             "created_by": session["user"]
         }
         mongo.db.tasks.insert_one(task)
-        flash("Task Successfully Added")
+        flash("Task Successfully Added", category='success')
         return redirect(url_for("get_tasks"))
 
     return render_template("add_task.html")
@@ -118,6 +118,7 @@ def edit_task(task_id):
         is_urgent = "on" if request.form.get("urgent") else "off"
         submit = {
             "job_title": request.form.get("job_title"),
+            "company_name": request.form.get("company_name"),
             "job_description": request.form.get("job_description"),
             "quantity": request.form.get("quantity"),
             "materials": request.form.get("materials"),
@@ -130,7 +131,7 @@ def edit_task(task_id):
             "created_by": session["user"]
         }
         mongo.db.tasks.replace_one({"_id": ObjectId(task_id)}, submit)
-        flash("Task Successfully Updated")
+        flash("Task Successfully Updated", category='success')
         return redirect(url_for("get_tasks"))
 
     task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
@@ -140,7 +141,7 @@ def edit_task(task_id):
 @app.route("/delete_task/<task_id>")
 def delete_task(task_id):
     mongo.db.tasks.delete_one({"_id": ObjectId(task_id)})
-    flash("Task Successfully Deleted")
+    flash("Task Successfully Deleted", category='success')
     return redirect(url_for("get_tasks"))
 
 
