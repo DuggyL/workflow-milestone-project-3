@@ -56,17 +56,29 @@
         </form>
     </div>
 
-    <div>
-        <table class="">
-            {% for customer in customers %}
-                <tr>
-                <td>{{ customer.id }} - {{ customer.company_name }} - {{customer.customer_name }} - {{ customer.contact_no }} - {{ customer.email }} - {{ customer.address }}
-                <a href="">Delete</a></td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-
+    <table>
+        <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Customer Name</th>
+            <th>Contact No</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.company_name }}</td>
+            <td>{{ customer.customer_name }}</td>
+            <td>{{ customer.contact_no }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.address }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+      
 {% endblock %}
 
 

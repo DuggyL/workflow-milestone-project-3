@@ -1,4 +1,5 @@
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import (
+    Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -6,7 +7,6 @@ from taskmanager import app, db, mongo
 from taskmanager.models import Customer
 
 @app.route("/")
-
 @app.route("/get_tasks")
 def get_tasks():
     tasks = list(mongo.db.tasks.find())
@@ -108,7 +108,6 @@ def add_task():
         mongo.db.tasks.insert_one(task)
         flash("Task Successfully Added", category='success')
         return redirect(url_for("get_tasks"))
-        
     customers = list(Customer.query.order_by(Customer.company_name).all())
     return render_template("add_task.html", customers=customers)
 
@@ -162,5 +161,4 @@ def add_customer():
         db.session.commit()
         flash("Customer Successfully added", category='success')
         return redirect(url_for("add_customer"))
-        
     return render_template("add_customer.html", customers=customers)
