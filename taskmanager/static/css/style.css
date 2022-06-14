@@ -16,3 +16,12 @@
 .tasks-card {
     padding: 15px 10px 10px 10px;
 }
+
+.wrapper {
+    padding-left: 300px;
+}
+
+.brand-logo {
+    font-size: 50px;
+    font-weight: 900;
+}

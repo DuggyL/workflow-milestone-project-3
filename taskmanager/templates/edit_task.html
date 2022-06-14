@@ -80,9 +80,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">phone</i>
-                    <textarea id="delivery_address" name="delivery_address" class="materialize-textarea" 
+                    <textarea id="delivery_address" name="delivery_address" value="{{ task.delivery_address }}" class="materialize-textarea" 
                         minlength="5" maxlength="100" required>
-                    {{- task.delivery_address -}}
                     </textarea>
                     <label for="delivery_address">Delivery Address</label>
                 </div>
