@@ -5,7 +5,6 @@ from flask_pymongo import PyMongo
 from flask_sqlalchemy import SQLAlchemy
 if os.path.exists("env.py"):
     import env
-    
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
@@ -16,5 +15,4 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 db = SQLAlchemy(app)
 mongo = PyMongo(app)
-
 from taskmanager import routes

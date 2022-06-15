@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    
-
     <div class="row card-panel">
         <h4 class="center-align">Add Customer</h4>
         <form class="col s12" method="POST" action="{{ url_for('add_customer') }}">
@@ -78,6 +76,7 @@
             <td>{{ customer.contact_no }}</td>
             <td>{{ customer.email }}</td>
             <td>{{ customer.address }}</td>
+            <td><a href="{{ url_for('delete_customer', customer_id=customer.id) }}" class="btn red lighten-1">Delete</a></td>
         </tr>
         {% endfor %}
         </tbody>

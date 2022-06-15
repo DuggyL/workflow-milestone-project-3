@@ -162,3 +162,11 @@ def add_customer():
         flash("Customer Successfully added", category='success')
         return redirect(url_for("add_customer"))
     return render_template("add_customer.html", customers=customers)
+
+@app.route("/delete_customer/<int:customer_id>")
+def delete_customer(customer_id):
+    customer = Customer.query.get_or_404(customer_id)
+    db.session.delete(customer)
+    db.session.commit()
+    mongo.db.tasks.delete_many({"customer_id": str(customer_id)})
+    return redirect(url_for("add_customer"))
