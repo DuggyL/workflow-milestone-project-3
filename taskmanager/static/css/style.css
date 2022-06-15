@@ -38,7 +38,7 @@ h4 {
     margin-bottom: 40px;
 }
 
-section p {
+.flash {
     font-weight: 500;
     font-size: 30px;
     font-style: italic;
@@ -71,8 +71,4 @@ span {
 .task-title {
     font-weight: 900;
     font-size: 24px;
-}
-
-a {
-    text-decoration: none;
 }
