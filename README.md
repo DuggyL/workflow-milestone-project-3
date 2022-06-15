@@ -49,7 +49,7 @@ The reason I chose these 2 combinations of colours for my project is to keep the
 -   ### Navigation Bar
     -   Featured on all pages, the full responsive navigation bar includes links to the Logo, tasks, add tasks, add customer, log in and register page and is identical on each page to allow for easy navigation.
     -   This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button.
-    -   The navigation bar displays different links depending on whether the user is logged in, logged out or a super user.
+    -   The navigation bar displays different links depending on whether the user is logged in, logged out.
 
 -   ### Home Page
     -   Tasks display on the landing page. Users can interact with the collapsible to see more in-depth details of the work instruction.
@@ -93,7 +93,7 @@ Using the CRUD's four basic functions (create, read, update and delete), here ar
 
 -   ### Form Validation
     -   Form validation has been added to every form to ensure all required information is included before submission.
-    -   If incorrect data is input a warning red line indicates the data invalid 
+    -   If incorrect data is input a warning red line indicates the data invalid i.e no letters in strictly number field, minimum and maximum character depend on expected data.
 
 <img src=images/logoff.png>
 
@@ -103,11 +103,10 @@ Using the CRUD's four basic functions (create, read, update and delete), here ar
 <img src=images/login.png>
 
 ## Future Features
--   I would like to add more features to the profile page, like task history.
--   Add search function to customer page
+-   I would like to add more features to the profile page, like tasks history.
+-   Add search and edit function to customer page
 -   The ability for users to change their username and password
 -   Improvement of user experience to task collapsible 
--   Add, edit, delete function to customer page
 -   The ability to add comments to a task is collapsible while the task is still active
 
 ## Technologies Used
@@ -142,10 +141,10 @@ Using the CRUD's four basic functions (create, read, update and delete), here ar
 
 The JSHint Lighthouse, W3C Markup Validator and W3C CSS Validator Services were used to validate the project to ensure there were no errors in the project.
 
--   JSHint Found 9 functions with same 19 warnings regarding browser extension. [link](assets/images/screenshots/jshint.png)
--   HTML Validator found no errors or warnings. [link](assets/images/screenshots/html-validator.png) 
--   CSS Validator flagged minor warnings from bootstrap but no error found. [link](assets/images/screenshots/css-validator.png) 
--   Python PEP8 online 
+-   JSHint Found 9 functions with same 2 warnings regarding browser extension. [link](images/JSHint.png)
+-   HTML Validator found 1 error from Materialize jQuery preset. [link](images/html-checker.png) 
+-   CSS Validator found 1 error from Materialize css preset. [link](images/css-checker.png) 
+-   Python PEP8 online found 2 error regarding expected lines
 
 ### Testing User Stories from User Experience (UX) Section
 
@@ -153,48 +152,39 @@ The JSHint Lighthouse, W3C Markup Validator and W3C CSS Validator Services were 
 
     1. As a User, I want to register and create a user profile.
 
-        1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image with Text and a "Learn More" Call to action button.
-        2. The main points are made immediately with the hero image
-        3. The user has two options, click the call to action buttons or scroll down, both of which will lead to the same place, to learn more about the organisation.
+        - The site allow user to register to the task manager using register page and set up their own profile
 
     2. As a User, I want to easily navigate across the site so that I can find the information I need.
 
-        1. The site has been designed to be fluid and never to entrap the user. At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
-        2. At the bottom of the first 3 pages there is a redirection call to action to ensure the user always has somewhere to go and doesn't feel trapped as they get to the bottom of the page.
-        3. On the Contact Us Page, after a form response is submitted, the page refreshes and the user is brought to the top of the page where the navigation bar is.
+        - The site has been designed to easily navigate. At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
 
     3. As a User, I want to see messages responding to my interaction with the web application i.e. logging in, logging out, registering, adding, edit or delete.
-        1. Once the new visitor has read the About Us and What We Do text, they will notice the Why We are Loved So Much section.
-        2. The user can also scroll to the bottom of any page on the site to locate social media links in the footer.
-        3. At the bottom of the Contact Us page, the user is told underneath the form, that alternatively they can contact the organisation on social media which highlights the links to them.
+
+        - If users correctly or successfully input data, a green success flash will appear with appropriate messages and flash red if failed or input data incorrectly.
     
     4. As a User, I want the ability to add, edit and delete jobs.
-        1. Once the new visitor has read the About Us and What We Do text, they will notice the Why We are Loved So Much section.
-        2. The user can also scroll to the bottom of any page on the site to locate social media links in the footer.
-        3. At the bottom of the Contact Us page, the user is told underneath the form, that alternatively they can contact the organisation on social media which highlights the links to them.
+
+        - Users can add, edit and delete tasks/customer from the database.
 
     5. As a User, I want customer’s details and work instructions available to me. 
-        1. Once the new visitor has read the About Us and What We Do text, they will notice the Why We are Loved So Much section.
-        2. The user can also scroll to the bottom of any page on the site to locate social media links in the footer.
-        3. At the bottom of the Contact Us page, the user is told underneath the form, that alternatively they can contact the organisation on social media which highlights the links to them.
+
+        - All the created tasks are display on the main page and customer information on customer page.
 
     6. As a User, I want a responsive website so that I can access it on different devices.
-        1. Once the new visitor has read the About Us and What We Do text, they will notice the Why We are Loved So Much section.
-        2. The user can also scroll to the bottom of any page on the site to locate social media links in the footer.
-        3. At the bottom of the Contact Us page, the user is told underneath the form, that alternatively they can contact the organisation on social media which highlights the links to them.
+        
+        - The forms and tasks collaspible and resize to small screen size on different devices.
 
 ### Further Testing
 
 -   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
--   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
--   A large amount of testing was done to ensure that all pages were linking correctly.
+-   Testing was done to ensure that all pages were linking correctly.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
-### Known Bugs
+### Known Bugs/Error
 
--   On some mobile devices the Hero Image pushes the size of screen out more than any of the other content on the page.
-    -   A white gap can be seen to the right of the footer and navigation bar as a result.
--   On Microsoft Edge and Internet Explorer Browsers, all links in Navbar are pushed upwards when hovering over them.
+<img src=images/internal-server-error.png>
+
+At the late stage of the project, I found the above server error after uploading to Heroku server. With my lack of experience and technical skills, I cannot find the source of the problems and fix the problems before the deadline of the project. The website works perfectly using a development server.
 
 # Deployment
 
@@ -206,7 +196,7 @@ The project was deployed to GitHub Pages using the following steps...
 3. Click on "Pages" will open "GitHub Pages" Section.
 4. Under "Source", click the dropdown called "None" and select "Master Branch".
 5. The page will automatically refresh.
-6. At the top near github header to locate the now published site [link](https://duggyl.github.io/chef-dicson-milestone-project-1/).
+6. At the top near github header to locate the now published site [link](https://github.com/DuggyL/workflow-milestone-project-3/).
 
 ### Forking the GitHub Repository
 
