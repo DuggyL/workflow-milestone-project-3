@@ -10,7 +10,7 @@
                 <div class="input-field col s6">
                     <i class="material-icons prefix">business_center</i>
                     <select id="company_name" name="company_name" class="validate" required>
-                        <option value="" disabled selected>Choose Company</option>
+                        <option disabled selected>Choose Company</option>
                         {% for customer in customers %}
                             <option value="{{ customer.company_name }}">{{ customer.company_name }}</option>
                         {% endfor %}
