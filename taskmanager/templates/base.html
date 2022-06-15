@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
-    <title>Task Manager</title>
+    <title>Printcentre Wales Task Manager</title>
 </head>
 <body>
 
 	<header>
-        <!-- top navbar -->
-		<nav class="nav-extended black darken-1">
+        <!-- Navbar -->
+		<nav class="nav-extended black darken-1 navbar">
 			<div class="nav-wrapper">
 				<a href="{{ url_for('get_tasks') }}" class="brand-logo logo center">Printcentre Wales</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -36,8 +36,8 @@
 			</div>
 		</nav>
 
-        <!-- mobile sidenav -->
-		<ul class="sidenav" id="mobile-demo">
+        <!-- Mobile sidenav -->
+		<ul class="sidenav navbar" id="mobile-demo">
             <li><h4 class="center-align light-blue-text text-darken 4">Task Manager</h4></li>
             <li><a href="{{ url_for('get_tasks') }}">Home</a></li>
             {% if session.user %}
@@ -62,14 +62,16 @@
                 {% for catergory, message in messages %}
                     {% if catergory == 'error' %}
                         <div class="alert card red lighten-4 red-text text-darken-4 center-align">
-                            <div class="card-content">
-                                <p><i class="material-icons">report</i>{{ message }}</p>
+                            <div class="card-content"></div>
+                                <i class="medium material-icons">report</i>
+                                <p>{{ message }}</p>
                             </div>
                         </div>
                     {% else %}
                         <div class="alert card green lighten-4 green-text text-darken-4 center-align">
                             <div class="card-content">
-                                <p><i class="material-icons">report</i>{{ message }}</p>
+                                <i class="medium material-icons Large">report</i>
+                                <p>{{ message }}</p>
                             </div>
                         </div>
                     {% endif %}

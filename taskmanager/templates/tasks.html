@@ -1,51 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h4 class="center-align">Work Instruction</h4>
-
     <div class="tasks-card row z-depth-1 blue-grey lighten-5">
       <div class="col s12">
-          <ul class="collapsible expandable">
+          <ul class="collapsible expandable popout">
           {% for task in tasks %}
             <li>
-              <div class="collapsible-header blue-grey darken-4 white-text">
-                <div class="col s3">
-                {% if task.urgent == "on" %}
-                <i class="material-icons" data-position="right" data-tooltip="URGENT!">info</i>
-                {% endif %}
-                </div>
-                <div class="col s3">{{ task.company_name }}</div>
-                <div class="col s3">{{ task.job_title }}</div>
-                <div class="col s2">                  
-                  {% if session.user|lower == task.created_by|lower %}
-                    <a href="{{ url_for('delete_task', task_id=task._id) }}" class="btn-small green accent-4">Done</a>
-                    <a href="{{ url_for('edit_task', task_id=task._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+              <div class="collapsible-header blue darken-4 white-text">
+                <div class="col s9 task-company">{{ task.company_name }}</div>
+                <div class="col s3">                  
+                  {% if task.urgent == "on" %}
+                  <i class="material-icons large"  data-tooltip="URGENT!">info</i>
                   {% endif %}
+                    {% if session.user|lower == task.created_by|lower %}
+                    <a href="{{ url_for('edit_task', task_id=task._id) }}"><i class="material-icons small white-text">border_color</i></a></a>
+                    <a href="{{ url_for('delete_task', task_id=task._id) }}"><i class="material-icons small white-text">assignment_turned_in</i></a>
+                    {% endif %}
                 </div>
               </div>
               <div class="collapsible-body white">
                 <div class="row">
-                  <div class="col s12">Job Description: {{ task.job_description }}</div>
+                  <div class="col s6">
+                    <span>Job Title: </span>{{ task.job_title }}</div>
                 </div>
                 <div class="row">
-                  <div class="col s6">Quantity: {{ task.quantity }}</div>
-                  <div class="col s6">Materials: {{ task.materials }}</div>
+                  <div class="col s6">
+                    <span>Job Description: </span>{{ task.job_description }}</div>
                 </div>
                 <div class="row">
-                  <div class="col s6">Printing: {{ task.printing }}</div>
-                  <div class="col s6">Finishing: {{ finishing }}</div>
+                  <div class="col s6">
+                    <span>Quantity: </span>{{ task.quantity }}</div>
+                  <div class="col s6">
+                    <span>Materials: </span>{{ task.materials }}</div>
                 </div>
                 <div class="row">
-                  <div class="col s6">Delivery: {{ task.delivery }}</div>
-                  <div class="col s6">Delivery Date: {{ task.delivery_date }}</div>
+                  <div class="col s6">
+                    <span>Printing: </span>{{ task.printing }}</div>
+                  <div class="col s6">
+                    <span>Finishing: </span>{{ task.finishing }}</div>
                 </div>
                 <div class="row">
-                  <div class="col s12">Delivery Address: {{ task.delivery_address }}</div>
+                  <div class="col s6">
+                    <span>Delivery: </span>{{ task.delivery }}</div>
+                  <div class="col s6">
+                    <span>Delivery Date: </span>{{ task.delivery_date }}</div>
+                </div>
+                <div class="row">
+                  <div class="col s12">
+                    <span>Delivery Address: </span>{{ task.delivery_address }}</div>
                 </div>
               </div>
             </li>
-          {% endfor %}
+            {% endfor %}
           </ul>
+          <div class="center">
+          </div>
       </div>
   </div>
 
